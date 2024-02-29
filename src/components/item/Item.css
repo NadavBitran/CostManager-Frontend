@@ -1,58 +1,66 @@
-:root{
-    --blue1-Clr: #00A9FF;
-    --blue2-Clr: #89CFF3;
-    --blue3-Clr: #A0E9FF;
-    --blue4-Clr: #CDF5FD;
+/* Define custom color variables */
+:root {
+  --blue1-Clr: #00A9FF;   /* Primary blue color */
+  --blue2-Clr: #89CFF3;   /* Light blue color */
+  --blue3-Clr: #A0E9FF;   /* Pale blue color */
+  --blue4-Clr: #CDF5FD;   /* Very light blue color */
 }
 
+/* Styling for the card container */
 .card {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    max-width: 300px;
-    
-    background-color: #cdf5fd6c;
+  display: flex;   /* Display as flex container */
+  flex-direction: column;   /* Arrange items vertically */
+  border: 1px solid #ccc;   /* Border style */
+  border-radius: .5rem;   /* Rounded corners */
+  overflow: hidden;   /* Hide overflowing content */
+  max-width: 300px;   /* Maximum width of the card */
+  
+  background-color: #cdf5fd6c;   /* Semi-transparent blue background */
 
-    justify-self: center;
-  }
+  justify-self: center;   /* Align center horizontally */
+}
   
-  .card-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
+/* Styling for the card image */
+.card-image {
+  width: 100%;   /* Full width */
+  height: auto;   /* Maintain aspect ratio */
+  object-fit: cover;   /* Scale and crop image */
+}
   
-  .card-content {
-    padding: 1rem;
-  }
+/* Styling for the card content */
+.card-content {
+  padding: 1rem;   /* Padding around the content */
+}
   
-  .card-name {
-    font-size: 1.2rem;
-    margin-bottom: .5rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-height: 6.8em; 
-  }
+/* Styling for the card name */
+.card-name {
+  font-size: 1.2rem;   /* Font size */
+  margin-bottom: .5rem;   /* Bottom margin */
+  overflow: hidden;   /* Hide overflowing content */
+  text-overflow: ellipsis;   /* Truncate text with ellipsis */
+  max-height: 6.8em;   /* Maximum height for card name */
+}
   
-  .card-price {
-    font-size: 1rem;
-    color: #888;
-    margin-bottom: .5rem;
-  }
+/* Styling for the card price */
+.card-price {
+  font-size: 1rem;   /* Font size */
+  color: #888;   /* Gray color for price */
+  margin-bottom: .5rem;   /* Bottom margin */
+}
 
-  .card-date {
-    font-size: 0.9rem;
-    color: #777;
-  }
+/* Styling for the card date */
+.card-date {
+  font-size: 0.9rem;   /* Font size */
+  color: #777;   /* Dark gray color for date */
+}
   
-  .card-description {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.4rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-height: 6.8em; 
-    margin-bottom: 0;
-  }
+/* Styling for the card description */
+.card-description {
+  font-size: 1rem;   /* Font size */
+  color: #555;   /* Dark gray color for description */
+  line-height: 1.4rem;   /* Line height */
+  overflow: hidden;   /* Hide overflowing content */
+  text-overflow: ellipsis;   /* Truncate text with ellipsis */
+  max-height: 6.8em;   /* Maximum height for card description */
+  margin-bottom: 0;   /* Remove bottom margin */
+}
