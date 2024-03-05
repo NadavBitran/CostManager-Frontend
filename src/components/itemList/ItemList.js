@@ -11,7 +11,7 @@ function ItemList({itemList}) {
    return (
     <div className={'itemList container'}>
             {/* Mapping through the itemList array and rendering each item */}
-            {itemList.map((item , index) => (
+            {itemList.length > 0 ? (itemList.map((item , index) => (
                 <Item 
                     key={index}
                     sum={item.sum}
@@ -20,7 +20,9 @@ function ItemList({itemList}) {
                     description={item.description}
                     month={item.month}
                     year={item.year} />
-            ))}
+            ))) : (
+                <p className={'noItemsMessage'}>No items to display</p>
+            )}
         
     </div>
   );

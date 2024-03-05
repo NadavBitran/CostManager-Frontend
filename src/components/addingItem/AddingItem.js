@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import "./Addingproduct.css";
+import "./AddingItem.css";
 
-export default function AddingProduct({addCost, setItemList}) {
+export default function AddingItem({addCost, setItemList}) {
 
     const [Name, setName] = useState('');
     const [Sum, setSum] = useState('');
@@ -11,7 +11,7 @@ export default function AddingProduct({addCost, setItemList}) {
     const [sumError, setSumError] = useState('');
     const [categoryError, setCategoryError] = useState('');
     
-
+    //function that limits sum to postive numbers only and up to 10 digits
     function handleSumChange(e) {
         const value = e.target.value;
         const sanitizedValue = value.replace(/^0|\D/g, '');
@@ -20,6 +20,7 @@ export default function AddingProduct({addCost, setItemList}) {
     }
 
     async function addItem() {
+        //validation checking that user didnt leave any empty fields when trying to add an item
         if (!Name) {
             setNameError('Please enter a product name');
             return;
@@ -48,9 +49,11 @@ export default function AddingProduct({addCost, setItemList}) {
             description: Description || 'No description added'
         };
 
+        //adds the new item to the data base
         const newItemFromDB = await addCost(newItem);
         setItemList((prev) => [...prev, newItemFromDB]);
 
+        //clear user input after successuly adding a new item
         setName('');
         setSum('');
         setCategory('');
@@ -58,25 +61,22 @@ export default function AddingProduct({addCost, setItemList}) {
     }
 
     return (
-        <div className={'div-design container'}>
+        <div className={'add-container container'}>
             <input
                 type='text'
                 placeholder='Enter product name'
                 value={Name}
                 onChange={(e) => setName(e.target.value)}
-                className={'location'}
             />
             <input
                 type='text'
                 placeholder='Enter sum'
                 value={Sum}
                 onChange={handleSumChange}
-                className={'location'}
             />
             <select
                 value={Category}
                 onChange={(e) => setCategory(e.target.value)}
-                className={'location'}
             >
                 <option value='' disabled>Select category</option>
                 <option value='Food'>Food</option>
@@ -92,11 +92,11 @@ export default function AddingProduct({addCost, setItemList}) {
                 value={Description}
                 onChange={(e) => setDescription(e.target.value)}
             />
-            <button onClick={addItem} className={'location'}>Add item</button>
-            <br/>
-            {categoryError && <p style={{ color: 'red' }}>{categoryError}</p>}
-            {sumError && <p style={{ color: 'red' }}>{sumError}</p>}
-            {nameError && <p style={{ color: 'red' }}>{nameError}</p>}
+            <button onClick={addItem}>Add item</button>
+            {/* types a warning to the user in case of empty field */}
+            {categoryError && <p className={'errorMessage'}>{categoryError}</p>}
+            {sumError && <p className={'errorMessage'}>{sumError}</p>}
+            {nameError && <p className={'errorMessage'}>{nameError}</p>}
         </div>
     );
 }

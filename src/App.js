@@ -1,7 +1,8 @@
 // Importing the necessary dependencies
 import ItemList from './components/itemList/ItemList';
 import FilterComponent from './components/filterItems/FilterItems';
-import AddingProduct from './components/addingProduct/AddingProduct';
+import AddingItem from './components/addingItem/AddingItem';
+import Header from './components/header/header';
 import {idb} from './db/idb';
 
 // Imoporting the necessary hooks
@@ -47,8 +48,12 @@ function App() {
 
   return (
     <div className='App'>
+
+      {/* Component for the header */}
+      <Header title={'Cost Manager'}></Header>
+
       {/* Component for adding a new cost */}
-      <AddingProduct addCost={databaseAPI.addCost} setItemList={setItemList}/>
+      <AddingItem addCost={databaseAPI.addCost} setItemList={setItemList}/>
       
       {/* Component for filtering costs */}
       <FilterComponent getAllCost={databaseAPI.getAllCosts} getCosts={databaseAPI.getCosts} onFilter={setItemList}/>

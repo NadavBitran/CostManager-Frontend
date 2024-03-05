@@ -1,0 +1,9 @@
+header{
+    background-color: #cdf5fd;
+    width: 100%;
+    padding-inline: 1rem;
+    margin-top: .25rem;
+}
+.appTitle{
+    text-align: center;
+}

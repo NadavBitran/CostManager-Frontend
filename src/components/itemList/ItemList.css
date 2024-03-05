@@ -1,21 +1,9 @@
-/* Set the maximum height of the body to 100vh and remove deafult margin and padding */
-body{
-    max-height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Set the maximum width of the container to 1440px */
-.container{
-    max-width: 1440px;
-}   
-
 /* Styling for the itemList component */
 .itemList{
 
     /* Add margin around the itemList */
     margin-block: 2rem;
+    padding: 1rem;
 
     /* Use grid layout with auto-fill and minmax to create responsive columns */
     display: grid;
@@ -28,9 +16,19 @@ body{
     overflow: auto;
 
     /* Set the maximum height of the itemList to 70vh */
-    max-height: 70vh;
+    max-height: 48vh;
     
     /* Customize the element's scrollbar width and color */
     scrollbar-width: thin;
     scrollbar-color: var(--blue1-Clr) var(--blue4-Clr);
+}
+
+.noItemsMessage{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 2rem;
+    font-weight: 700;
 }

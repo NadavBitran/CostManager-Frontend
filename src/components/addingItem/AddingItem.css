@@ -1,0 +1,16 @@
+.add-container, .filter-container{
+    width: 100%;
+    background-color: #cdf5fd;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    align-items: center;
+    gap: 2rem;
+    min-height: 3rem;
+    padding: 1rem;
+}
+
+.errorMessage{
+    color: red;
+    font-size: .9rem;
+}
