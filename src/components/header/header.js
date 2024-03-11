@@ -1,5 +1,6 @@
 import "./header.css";
 
+//header that adds a title to the project
 function Header({title}) {
     return (
         <header className={"container"}>
