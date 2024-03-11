@@ -18,13 +18,13 @@ function openCostsDB(dbName, dbVersion) {
     };
 
     request.onerror = function () {
-      reject("There was an error opening the database");
+      reject('There was an error opening the database');
     };
 
     request.onupgradeneeded = function (event) {
       db = event.target.result;
-      let objectStore = db.createObjectStore("costItems", {
-        keyPath: "id",
+      let objectStore = db.createObjectStore('costItems', {
+        keyPath: 'id',
         autoIncrement: true,
       });
 
@@ -32,7 +32,7 @@ function openCostsDB(dbName, dbVersion) {
         objectStore.add(db.data[i]);
       }
 
-      objectStore.createIndex("month_year", ["month", "year"], {
+      objectStore.createIndex('month_year', ['month', 'year'], {
         unique: false,
       });
     };
@@ -42,9 +42,9 @@ function openCostsDB(dbName, dbVersion) {
 function getCosts(month, year) {
   return new Promise((resolve, reject) => {
     let request = db
-      .transaction(["costItems"], "readonly")
-      .objectStore("costItems")
-      .index("month_year")
+      .transaction(['costItems'], 'readonly')
+      .objectStore('costItems')
+      .index('month_year')
       .openCursor(IDBKeyRange.only([month, year]));
 
     let results = [];
@@ -60,7 +60,7 @@ function getCosts(month, year) {
     };
 
     request.onerror = function () {
-      reject("Error retrieving items");
+      reject('Error retrieving items');
     };
   });
 }
@@ -68,8 +68,8 @@ function getCosts(month, year) {
 function addCost(newCostItem) {
   return new Promise((resolve, reject) => {
     let request = db
-      .transaction(["costItems"], "readwrite")
-      .objectStore("costItems")
+      .transaction(['costItems'], 'readwrite')
+      .objectStore('costItems')
       .add({
         ...newCostItem,
         month: new Date().getUTCMonth() + 1,
@@ -77,10 +77,10 @@ function addCost(newCostItem) {
       });
 
     request.onsuccess = function () {
-      resolve("The item has been added successfully");
+      resolve('The item has been added successfully');
     };
     request.onerror = function () {
-      reject("There was an error adding the item");
+      reject('There was an error adding the item');
     };
   });
 }

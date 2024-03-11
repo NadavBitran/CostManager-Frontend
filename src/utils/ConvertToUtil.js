@@ -20,7 +20,7 @@ const monthDictionary = {
     '10' : 'October',
     '11' : 'November',
     '12' : 'December'
-}
+};
 
 // Dictionary for mapping category names to category images
 const categoryDictionary = {

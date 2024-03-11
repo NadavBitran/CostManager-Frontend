@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import "./AddingItem.css";
 
 export default function AddingItem({addCost, setItemList}) {
-
+    //hooks for getting user input
     const [Name, setName] = useState('');
     const [Sum, setSum] = useState('');
     const [Category, setCategory] = useState('');
     const [Description, setDescription] = useState('');
-    const [nameError, setNameError] = useState('');
-    const [sumError, setSumError] = useState('');
-    const [categoryError, setCategoryError] = useState('');
+
+    const [inputError, setInputError] = useState(''); //hook for checking that all fields were filled
     
     //function that limits sum to postive numbers only and up to 10 digits
     function handleSumChange(e) {
@@ -20,28 +19,29 @@ export default function AddingItem({addCost, setItemList}) {
     }
 
     async function addItem() {
-        //validation checking that user didnt leave any empty fields when trying to add an item
+        //validation for checking that user didnt leave any empty fields when trying to add an item
         if (!Name) {
-            setNameError('Please enter a product name');
+            setInputError('Please enter a product name');
             return;
         } else {
-            setNameError('');
+            setInputError('');
         }
 
         if (Sum === '' || isNaN(Number(Sum))) {
-            setSumError('Please enter a valid sum');
+            setInputError('Please enter a valid sum');
             return;
         } else {
-            setSumError('');
+            setInputError('');
         }
 
         if (!Category) {
-            setCategoryError('Please select a category');
+            setInputError('Please select a category');
             return;
         } else {
-            setCategoryError('');
+            setInputError('');
         }
 
+        //creates a new cost item
         const newItem = {
             name: Name,
             sum: Sum,
@@ -93,10 +93,8 @@ export default function AddingItem({addCost, setItemList}) {
                 onChange={(e) => setDescription(e.target.value)}
             />
             <button onClick={addItem}>Add item</button>
-            {/* types a warning to the user in case of empty field */}
-            {categoryError && <p className={'errorMessage'}>{categoryError}</p>}
-            {sumError && <p className={'errorMessage'}>{sumError}</p>}
-            {nameError && <p className={'errorMessage'}>{nameError}</p>}
+            {/* types a warning to the user in case of an empty field */}
+            {inputError && <p className={'errorMessage'}>{inputError}</p>}
         </div>
     );
 }
