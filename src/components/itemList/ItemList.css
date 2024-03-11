@@ -1,28 +1,34 @@
-
-body{
-    max-height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.container{
-    max-width: 1440px;
-}   
-
+/* Styling for the itemList component */
 .itemList{
 
+    /* Add margin around the itemList */
     margin-block: 2rem;
+    padding: 1rem;
 
+    /* Use grid layout with auto-fill and minmax to create responsive columns */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
+    /* Add gap between grid items */
     gap: 2rem;
 
+    /* Enable scrolling for the itemList */
     overflow: auto;
 
-    max-height: 70vh;
+    /* Set the maximum height of the itemList to 70vh */
+    max-height: 48vh;
     
+    /* Customize the element's scrollbar width and color */
     scrollbar-width: thin;
     scrollbar-color: var(--blue1-Clr) var(--blue4-Clr);
+}
+
+.noItemsMessage{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 2rem;
+    font-weight: 700;
 }

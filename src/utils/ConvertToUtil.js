@@ -1,3 +1,4 @@
+// Importing Matching Category images
 import Food from '../images/food_image.jpg';
 import Health from '../images/health_image.jpg';
 import Housing from '../images/housing_image.jpg';
@@ -5,6 +6,7 @@ import Travel from '../images/travel_image.jpg';
 import Education from '../images/education_image.jpg';
 import Other from "../images/question_mark_image.jpg";
 
+// Dictionary for mapping month numbers to month names
 const monthDictionary = {
     '1' : 'January',
     '2' : 'February',
@@ -20,6 +22,7 @@ const monthDictionary = {
     '12' : 'December'
 }
 
+// Dictionary for mapping category names to category images
 const categoryDictionary = {
     'FOOD' :  Food,
     'HEALTH' : Health,
@@ -29,8 +32,11 @@ const categoryDictionary = {
     'OTHER' : Other
 };
 
+// Function to convert month and year to formatted string
 const convertToFormattedMonthAndYear = (numberOfMonth, numberOfYear) => `${monthDictionary[numberOfMonth]} ${numberOfYear}`;
 
+// Function to convert category name to corresponding image
 const convertToImageOfCategory = (category) => categoryDictionary[category];
 
+// Exporting the utility functions
 export {convertToImageOfCategory, convertToFormattedMonthAndYear}

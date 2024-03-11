@@ -1,14 +1,17 @@
+// Importing the necessary dependencies
 import Item from '../item/Item';
 import React from 'react';
 
+// Importing the CSS file for styling
 import './ItemList.css';
 
-
+// Defining the ItemList component
 function ItemList({itemList}) {
     
    return (
     <div className={'itemList container'}>
-            {itemList.map((item , index) => (
+            {/* Mapping through the itemList array and rendering each item */}
+            {itemList.length > 0 ? (itemList.map((item , index) => (
                 <Item 
                     key={index}
                     sum={item.sum}
@@ -17,10 +20,13 @@ function ItemList({itemList}) {
                     description={item.description}
                     month={item.month}
                     year={item.year} />
-            ))}
+            ))) : (
+                <p className={'noItemsMessage'}>No items to display</p>
+            )}
         
     </div>
   );
 };
 
+// Exporting the ItemList component as the default export
 export default ItemList;
