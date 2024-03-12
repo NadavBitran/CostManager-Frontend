@@ -1,4 +1,11 @@
-import { useRef } from "react";
+/* Authors:
+* Eyal Chachmishvily 209786094
+* Idan Eliyahu 204174155
+* Nadav Bitran Numa 325122075
+*/
+
+
+import { useRef } from 'react';
 
 
 const useIndexedDB = () => {
@@ -13,7 +20,8 @@ const useIndexedDB = () => {
   
       const request = window.indexedDB.open(dbName, dbVersion);
   
-      // On successful database open, set the db variable and resolve with the necessary API we are providing
+      /* On successful database open, set the db variable and resolve 
+         with the necessary API we are providing */
       request.onsuccess = (event) => {
         db.value = event.target.result;
         resolve({ addCost, getCosts, getAllCosts });
@@ -43,7 +51,7 @@ const useIndexedDB = () => {
         });
       };
     });
-  }
+  };
 
   const getCosts = (month, year) => {
     return new Promise((resolve, reject) => {
@@ -71,7 +79,7 @@ const useIndexedDB = () => {
         reject('Error retrieving items');
       };
     });
-  }
+  };
 
   const getAllCosts = () => {
     return new Promise((resolve, reject) => {
@@ -91,7 +99,7 @@ const useIndexedDB = () => {
         reject('Error retrieving items');
       };
     });
-   }
+   };
 
    const addCost = (newCostItem) => {
     return new Promise((resolve, reject) => {
@@ -117,7 +125,7 @@ const useIndexedDB = () => {
         reject('There was an error adding the item');
       };
     });
-   }
+   };
 
 
    return { openCostsDB };

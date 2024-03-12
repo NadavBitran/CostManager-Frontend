@@ -1,9 +1,23 @@
-header{
-    background-color: #cdf5fd;
+/* Authors:
+* Eyal Chachmishvily 209786094
+* Idan Eliyahu 204174155
+* Nadav Bitran Numa 325122075
+*/
+
+/* Styling for the header */
+header {
+    /* Set background color for the header */
+    background-color: #cdf5fd;   
+    /* Full width of the viewport */
     width: 100%;
-    padding-inline: 1rem;
-    margin-top: .25rem;
+    /* Add padding on the left and right of the header */                  
+    padding-inline: 1rem;     
+    /* Add margin on top of the header */ 
+    margin-top: .25rem;         
 }
-.appTitle{
-    text-align: center;
+
+/* Styling for the application title within the header */
+.appTitle {
+    /* Center-align the text within the header */
+    text-align: center; 
 }

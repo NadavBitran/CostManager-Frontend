@@ -1,3 +1,9 @@
+/* Authors:
+* Eyal Chachmishvily 209786094
+* Idan Eliyahu 204174155
+* Nadav Bitran Numa 325122075
+*/
+
 /* Define custom color variables */
 :root {
     --blue1-Clr: #00A9FF;   /* Primary blue color */
@@ -63,21 +69,24 @@ body{
 }
 
 
-button{
+/* Styling for buttons */
+button {
     width: 5.5rem;
     height: 2rem;
     border: none;
     border-radius: .5rem;
     max-height: 2rem;
-    background-color: var(--blue3-Clr);
+    background-color: var(--blue3-Clr);  /* Use the defined pale blue color */
 }
 
-button:hover{
+/* Hover effect for buttons */
+button:hover {
     opacity: 0.7;
     cursor: pointer;
 }
 
-input{
+/* Styling for input fields */
+input {
     padding-block: .5rem;
     padding-left: .5rem;
     border-radius: .5rem;
@@ -87,7 +96,8 @@ input{
     outline: none;
 }
 
-select{
+/* Styling for select dropdowns */
+select {
     padding-block: .5rem;
     padding-left: .25rem;
     border-radius: .5rem;
@@ -97,11 +107,13 @@ select{
     outline: none;
 }
 
-select:hover{
+/* Hover effect for select dropdowns */
+select:hover {
     cursor: pointer;
 }
 
-.errorMessage{
+/* Styling for error messages */
+.errorMessage {
     color: red;
     font-size: .9rem;
 }

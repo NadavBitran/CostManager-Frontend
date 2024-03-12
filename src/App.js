@@ -1,8 +1,14 @@
+/* Authors:
+* Eyal Chachmishvily 209786094
+* Idan Eliyahu 204174155
+* Nadav Bitran Numa 325122075
+*/
+
 // Importing the necessary dependencies
 import ItemList from './components/itemList/ItemList';
 import FilterItems from './components/filterItems/FilterItems';
 import AddingItem from './components/addingItem/AddingItem';
-import Header from './components/header/header';
+import Header from './components/header/Header';
 
 // Imoporting the necessary hooks
 import useItemList from './hooks/useItemList';

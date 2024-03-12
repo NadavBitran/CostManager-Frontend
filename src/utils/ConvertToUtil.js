@@ -1,10 +1,16 @@
+/* Authors:
+* Eyal Chachmishvily 209786094
+* Idan Eliyahu 204174155
+* Nadav Bitran Numa 325122075
+*/
+
 // Importing Matching Category images
 import Food from '../images/food_image.jpg';
 import Health from '../images/health_image.jpg';
 import Housing from '../images/housing_image.jpg';
 import Travel from '../images/travel_image.jpg'; 
 import Education from '../images/education_image.jpg';
-import Other from "../images/question_mark_image.jpg";
+import Other from '../images/question_mark_image.jpg';
 
 // Dictionary for mapping month numbers to month names
 const monthDictionary = {
@@ -39,4 +45,4 @@ const convertToFormattedMonthAndYear = (numberOfMonth, numberOfYear) => `${month
 const convertToImageOfCategory = (category) => categoryDictionary[category];
 
 // Exporting the utility functions
-export {convertToImageOfCategory, convertToFormattedMonthAndYear}
+export {convertToImageOfCategory, convertToFormattedMonthAndYear};

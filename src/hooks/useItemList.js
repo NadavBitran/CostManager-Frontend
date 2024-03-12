@@ -1,5 +1,11 @@
-import { useState, useEffect, useRef } from "react";
-import useIndexedDB from "./useIndexedDB";
+/* Authors:
+* Eyal Chachmishvily 209786094
+* Idan Eliyahu 204174155
+* Nadav Bitran Numa 325122075
+*/
+
+import { useState, useEffect, useRef } from 'react';
+import useIndexedDB from './useIndexedDB';
 
 const useItemList = () => {
 // State for the list of costs
@@ -7,8 +13,11 @@ const idb = useIndexedDB();
 
 const [itemList, setItemList] = useState([]);
 
-// State for the database API we are providing after opening the database
-const [databaseAPI, setDatabaseAPI] = useState({addCost: null, getAllCosts: null, getCosts: null});
+/* State for the database API we are providing after 
+   opening the database */
+const [databaseAPI, setDatabaseAPI] = useState({addCost:     null, 
+                                                getAllCosts: null, 
+                                                getCosts:    null});
 
 // State for checking if the component is mounted
 const isMounted = useRef(false);
@@ -35,10 +44,10 @@ useEffect(() => {
     fetchData();
     isMounted.current = true;
   }
-}, [isMounted, idb])
+}, [isMounted, idb]);
 
 
-    return {itemList, databaseAPI, setItemList}
-}
+    return {itemList, databaseAPI, setItemList};
+};
 
 export default useItemList;

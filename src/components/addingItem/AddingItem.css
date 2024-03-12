@@ -1,12 +1,28 @@
-.add-container{
-    width: 100%;
-    background-color: #cdf5fd;
-    display: flex;
-    flex-direction: row;
-    flex-wrap:wrap;
-    align-items: center;
-    gap: 2rem;
-    min-height: 3rem;
-    padding: 1rem;
+/* Authors:
+* Eyal Chachmishvily 209786094
+* Idan Eliyahu 204174155
+* Nadav Bitran Numa 325122075
+*/
+
+/* Styling for the filter container */
+.add-container {
+    /* Full width of the container */
+    width: 100%;           
+    /* Set background color for the filter container */         
+    background-color: #cdf5fd;    
+    /* Use flexbox layout */  
+    display: flex;   
+    /* Arrange children in a row */               
+    flex-direction: row;   
+    /* Allow items to wrap to the next line if needed */         
+    flex-wrap: wrap;       
+    /* Align items vertically in the center */         
+    align-items: center;    
+    /* Set the gap between children elements */        
+    gap: 2rem;       
+    /* Minimum height of the filter container */               
+    min-height: 3rem;   
+    /* Add padding to the container */            
+    padding: 1rem;                  
 }
 

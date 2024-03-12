@@ -1,12 +1,20 @@
+/* Authors:
+* Eyal Chachmishvily 209786094
+* Idan Eliyahu 204174155
+* Nadav Bitran Numa 325122075
+*/
+
 import React, { useState } from 'react';
 
-import "./FilterItems.css";
+import './FilterItems.css';
 
 // receives 2 props: onFilter function and getCosts function
 const FilterItems = ({ onFilter, getCosts }) => {
-    const [month, setMonth] = useState(''); //here we define state variables for month and year
+    //here we define state variables for month and year
+    const [month, setMonth] = useState(''); 
     const [year, setYear] = useState('');
-    const [inputError, setInputError] = useState(''); //hook for checking that all fields were filled
+    //hook for checking that all fields were filled
+    const [inputError, setInputError] = useState(''); 
 
     //validation that user filled both month and year before trying to filter 
     const handleFilter = async () => {
@@ -22,20 +30,19 @@ const FilterItems = ({ onFilter, getCosts }) => {
             setInputError('Please select year');
             return;
         }
-
-        const filteredItems = await getCosts(Number(month), Number(year)); //we call the getCosts function with selected month and year
+        //we call the getCosts function with selected month and year
+        const filteredItems = await getCosts(Number(month), Number(year)); 
         onFilter(filteredItems);
 
         setInputError(''); //removing warning for missing user input
 
     };
-
-
-
+    
     return (
         <div className='container filter-container'>
             <select value={month} onChange={(e)=>setMonth(e.target.value)}>
-            <option value='' disabled>Please select the month</option>  {/*options for selecting months */}
+            {/*options for selecting months */}
+            <option value='' disabled>Please select the month</option>  
             <option value='1'>January</option>
             <option value='2'>February</option>
             <option value='3'>March</option>
@@ -50,12 +57,14 @@ const FilterItems = ({ onFilter, getCosts }) => {
             <option value='12'>December</option>
             </select>
             <select value={year} onChange={(e)=>setYear(e.target.value)}>
-            <option value='' disabled>Please Select the year </option>{/*options for selecting years */}
+            {/*options for selecting years */}
+            <option value='' disabled>Please Select the year </option>
             <option value='2023'>2023</option>
             <option value='2024'>2024</option>
             </select>
             <button onClick={handleFilter}>Filter it</button>
-            {inputError && <p className={'errorMessage'}>{inputError}</p>} {/* types a warning to the user in case of an empty field */}
+            {/* types a warning to the user in case of an empty field */}
+            {inputError && <p className={'errorMessage'}>{inputError}</p>} 
         </div>
     );
 };

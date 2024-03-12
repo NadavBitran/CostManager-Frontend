@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
-import "./AddingItem.css";
+/* Authors:
+* Eyal Chachmishvily 209786094
+* Idan Eliyahu 204174155
+* Nadav Bitran Numa 325122075
+*/
 
-export default function AddingItem({addCost, setItemList}) {
+import React, { useState } from 'react';
+import './AddingItem.css';
+
+const AddingItem = ({addCost, setItemList}) => {
     //hooks for getting user input
     const [Name, setName] = useState('');
     const [Sum, setSum] = useState('');
     const [Category, setCategory] = useState('');
     const [Description, setDescription] = useState('');
-
-    const [inputError, setInputError] = useState(''); //hook for checking that all fields were filled
+    //hook for checking that all fields were filled
+    const [inputError, setInputError] = useState(''); 
     
     //function that limits sum to postive numbers only and up to 10 digits
     function handleSumChange(e) {
@@ -19,7 +25,8 @@ export default function AddingItem({addCost, setItemList}) {
     }
 
     async function addItem() {
-        //validation for checking that user didnt leave any empty fields when trying to add an item
+        /*validation for checking that user didnt 
+        leave any empty fields when trying to add an item*/
         if (!Name) {
             setInputError('Please enter a product name');
             return;
@@ -97,4 +104,6 @@ export default function AddingItem({addCost, setItemList}) {
             {inputError && <p className={'errorMessage'}>{inputError}</p>}
         </div>
     );
-}
+};
+
+export default AddingItem;

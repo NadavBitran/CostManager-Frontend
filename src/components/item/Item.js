@@ -1,8 +1,15 @@
+/* Authors:
+* Eyal Chachmishvily 209786094
+* Idan Eliyahu 204174155
+* Nadav Bitran Numa 325122075
+*/
+
 // Import React library
 import React from 'react';
 
 // Import utility functions
-import {convertToFormattedMonthAndYear, convertToImageOfCategory} from '../../utils/ConvertToUtil';
+import {convertToFormattedMonthAndYear, 
+        convertToImageOfCategory} from '../../utils/convertToUtil';
 
 // Import CSS file
 import './Item.css';
