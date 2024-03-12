@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import "./FilterItems.css";
 
 // receives 2 props: onFilter function and getCosts function
-const FilterComponent = ({ onFilter, getCosts }) => {
+const FilterItems = ({ onFilter, getCosts }) => {
     const [month, setMonth] = useState(''); //here we define state variables for month and year
     const [year, setYear] = useState('');
     const [inputError, setInputError] = useState(''); //hook for checking that all fields were filled
@@ -60,4 +60,4 @@ const FilterComponent = ({ onFilter, getCosts }) => {
     );
 };
 
-export default FilterComponent;
+export default FilterItems;

@@ -1,50 +1,19 @@
 // Importing the necessary dependencies
 import ItemList from './components/itemList/ItemList';
-import FilterComponent from './components/filterItems/FilterItems';
+import FilterItems from './components/filterItems/FilterItems';
 import AddingItem from './components/addingItem/AddingItem';
 import Header from './components/header/header';
-import {idb} from './db/idb';
 
 // Imoporting the necessary hooks
-import { useEffect, useState, useRef } from 'react';
+import useItemList from './hooks/useItemList';
 
 // Importing the CSS file for styling
 import './App.css';
 
 // Defining the App component
 function App() {
-  // State for the list of costs
-  const [itemList, setItemList] = useState([]);
-
-  // State for the database API we are providing aftre opening the database
-  const [databaseAPI, setDatabaseAPI] = useState({addCost: null, getAllCosts: null, getCosts: null});
-
-  // State for checking if the component is mounted
-  const isMounted = useRef(false);
-
-  useEffect(() => {
-    // Fetch data from the database
-    const fetchData = async () => {
-      // Open the costsDB database
-      const db = await idb.openCostsDB('costsDB', 1);
-
-      // Retrieve all costs from the database
-      const items = await db.getAllCosts();
-      
-      // Update the itemList state with the retrieved costs
-      setItemList(items);
-
-      // Set the databaseAPI state with the database's API
-      setDatabaseAPI(db);
-    }
-
-    // Fetch data only once when the component is mounted
-    if(!isMounted.current)
-    {
-      fetchData();
-      isMounted.current = true;
-    }
-  }, [isMounted])
+  
+  const {itemList, databaseAPI, setItemList} = useItemList();
 
   return (
     <div className='App'>
@@ -56,7 +25,7 @@ function App() {
       <AddingItem addCost={databaseAPI.addCost} setItemList={setItemList}/>
       
       {/* Component for filtering costs */}
-      <FilterComponent getAllCost={databaseAPI.getAllCosts} getCosts={databaseAPI.getCosts} onFilter={setItemList}/>
+      <FilterItems getAllCost={databaseAPI.getAllCosts} getCosts={databaseAPI.getCosts} onFilter={setItemList}/>
       
       {/* Component for displaying the list of costs */}
       <ItemList itemList={itemList}/>

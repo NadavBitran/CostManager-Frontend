@@ -1,4 +1,4 @@
-.add-container, .filter-container{
+.add-container{
     width: 100%;
     background-color: #cdf5fd;
     display: flex;
@@ -10,7 +10,3 @@
     padding: 1rem;
 }
 
-.errorMessage{
-    color: red;
-    font-size: .9rem;
-}
