@@ -30,22 +30,16 @@ const AddingItem = ({addCost, setItemList}) => {
         if (!Name) {
             setInputError('Please enter a product name');
             return;
-        } else {
-            setInputError('');
         }
 
         if (Sum === '' || isNaN(Number(Sum))) {
             setInputError('Please enter a valid sum');
             return;
-        } else {
-            setInputError('');
         }
 
         if (!Category) {
             setInputError('Please select a category');
             return;
-        } else {
-            setInputError('');
         }
 
         //creates a new cost item
@@ -56,15 +50,25 @@ const AddingItem = ({addCost, setItemList}) => {
             description: Description || 'No description added'
         };
 
-        //adds the new item to the data base
-        const newItemFromDB = await addCost(newItem);
-        setItemList((prev) => [...prev, newItemFromDB]);
 
-        //clear user input after successuly adding a new item
-        setName('');
-        setSum('');
-        setCategory('');
-        setDescription('');
+        try
+        {
+            //adds the new item to the data base
+            const newItemFromDB = await addCost(newItem);
+            setItemList((prev) => [...prev, newItemFromDB]);
+            setInputError(''); //removing warning for missing user input
+
+            //clear user input after successuly adding a new item
+            setName('');
+            setSum('');
+            setCategory('');
+            setDescription('');
+        }
+        catch (error)
+        {
+            //types an error message in case of an error comming from the data base
+            setInputError(error);
+        }
     }
 
     return (

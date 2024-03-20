@@ -103,7 +103,7 @@ const useIndexedDB = () => {
 
    const addCost = (newCostItem) => {
     return new Promise((resolve, reject) => {
-    
+      
       const newCostItemWithDate = {
         ...newCostItem,
         month: new Date().getUTCMonth() + 1, 

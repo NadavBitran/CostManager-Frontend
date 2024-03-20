@@ -25,17 +25,26 @@ const isMounted = useRef(false);
 useEffect(() => {
   // Fetch data from the database
   const fetchData = async () => {
-    // Open the costsDB database
-    const db = await idb.openCostsDB('costsDB', 1);
+    try
+    {
+      // Open the costsDB database
+      const db = await idb.openCostsDB('costsDB', 1);
 
-    // Retrieve all costs from the database
-    const items = await db.getAllCosts();
+      // Retrieve all costs from the database
+      const items = await db.getAllCosts();
     
-    // Update the itemList state with the retrieved costs
-    setItemList(items);
+      // Update the itemList state with the retrieved costs
+      setItemList(items);
 
-    // Set the databaseAPI state with the database's API
-    setDatabaseAPI(db);
+      // Set the databaseAPI state with the database's API
+      setDatabaseAPI(db);
+    }
+    catch (error)
+    {
+      // Log the data fetch initialization error to the console
+      console.error(error);
+    }
+
   }
 
   // Fetch data only once when the component is mounted

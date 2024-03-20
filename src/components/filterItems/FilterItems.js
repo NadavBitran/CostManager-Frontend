@@ -30,12 +30,19 @@ const FilterItems = ({ onFilter, getCosts }) => {
             setInputError('Please select year');
             return;
         }
-        //we call the getCosts function with selected month and year
-        const filteredItems = await getCosts(Number(month), Number(year)); 
-        onFilter(filteredItems);
 
-        setInputError(''); //removing warning for missing user input
-
+        try
+        {
+            //we call the getCosts function with selected month and year
+            const filteredItems = await getCosts(Number(month), Number(year)); 
+            onFilter(filteredItems);
+            setInputError(''); //removing warning for missing user input
+        }
+        catch (error)
+        {
+            //types an error message in case of an error comming from the data base
+            setInputError(error);
+        }
     };
     
     return (
