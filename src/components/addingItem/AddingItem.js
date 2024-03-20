@@ -13,8 +13,8 @@ const AddingItem = ({addCost, setItemList}) => {
     const [Sum, setSum] = useState('');
     const [Category, setCategory] = useState('');
     const [Description, setDescription] = useState('');
-    //hook for checking that all fields were filled
-    const [inputError, setInputError] = useState(''); 
+    //hook for displaying error message to the user
+    const [error, setError] = useState(''); 
     
     //function that limits sum to postive numbers only and up to 10 digits
     function handleSumChange(e) {
@@ -28,17 +28,17 @@ const AddingItem = ({addCost, setItemList}) => {
         /*validation for checking that user didnt 
         leave any empty fields when trying to add an item*/
         if (!Name) {
-            setInputError('Please enter a product name');
+            setError('Please enter a product name');
             return;
         }
 
         if (Sum === '' || isNaN(Number(Sum))) {
-            setInputError('Please enter a valid sum');
+            setError('Please enter a valid sum');
             return;
         }
 
         if (!Category) {
-            setInputError('Please select a category');
+            setError('Please select a category');
             return;
         }
 
@@ -56,7 +56,7 @@ const AddingItem = ({addCost, setItemList}) => {
             //adds the new item to the data base
             const newItemFromDB = await addCost(newItem);
             setItemList((prev) => [...prev, newItemFromDB]);
-            setInputError(''); //removing warning for missing user input
+            setError(''); //removing error messages
 
             //clear user input after successuly adding a new item
             setName('');
@@ -67,7 +67,7 @@ const AddingItem = ({addCost, setItemList}) => {
         catch (error)
         {
             //types an error message in case of an error comming from the data base
-            setInputError(error);
+            setError(error);
         }
     }
 
@@ -105,7 +105,7 @@ const AddingItem = ({addCost, setItemList}) => {
             />
             <button onClick={addItem}>Add item</button>
             {/* types a warning to the user in case of an empty field */}
-            {inputError && <p className={'errorMessage'}>{inputError}</p>}
+            {error && <p className={'errorMessage'}>{error}</p>}
         </div>
     );
 };

@@ -13,21 +13,21 @@ const FilterItems = ({ onFilter, getCosts }) => {
     //here we define state variables for month and year
     const [month, setMonth] = useState(''); 
     const [year, setYear] = useState('');
-    //hook for checking that all fields were filled
-    const [inputError, setInputError] = useState(''); 
+    //hook for displaying error message to the user
+    const [error, setError] = useState(''); 
 
     //validation that user filled both month and year before trying to filter 
     const handleFilter = async () => {
 
         if (month === '')
         {
-            setInputError('Please select month');
+            setError('Please select month');
             return;
         }
 
         if(year === '')
         {
-            setInputError('Please select year');
+            setError('Please select year');
             return;
         }
 
@@ -36,12 +36,12 @@ const FilterItems = ({ onFilter, getCosts }) => {
             //we call the getCosts function with selected month and year
             const filteredItems = await getCosts(Number(month), Number(year)); 
             onFilter(filteredItems);
-            setInputError(''); //removing warning for missing user input
+            setError(''); //removing error messages
         }
         catch (error)
         {
             //types an error message in case of an error comming from the data base
-            setInputError(error);
+            setError(error);
         }
     };
     
@@ -71,7 +71,7 @@ const FilterItems = ({ onFilter, getCosts }) => {
             </select>
             <button onClick={handleFilter}>Filter it</button>
             {/* types a warning to the user in case of an empty field */}
-            {inputError && <p className={'errorMessage'}>{inputError}</p>} 
+            {error && <p className={'errorMessage'}>{error}</p>} 
         </div>
     );
 };
